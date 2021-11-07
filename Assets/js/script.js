@@ -1,6 +1,13 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
+var passLength;
+var choiceLowerCase;
+var choiceUpperCase;
+var choiceNum;
+var choiceSpecial;
+
+
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
@@ -56,6 +63,38 @@ var specialCharacterRandom = function() {
 
   return String.fromCharCode(intRandom);
 }
+
+//Asks the user what character types they want in there password and how long they want the password.
+//and checks to make sure user input is valid. If the input is not valid it will alert them and let them try again.
+var passCriteriaPromt = function(userinput, numOrYN, charSet) {
+
+  while(numOrYN === "YN") {
+
+    userinput = window.prompt('Do you want ' + charSet + ' in your password? (Y/N)');
+    
+
+    if (userinput === "Y" || userinput === "N" || userinput === "y" || userinput === "n") {
+      return userinput.toLowerCase();
+    }
+    else {
+      window.alert('Invalid input try again');
+    }
+  }
+
+  while(numOrYN === "Num") {
+
+    userinput = window.prompt('How long do you want your password to be? (8 to 128)')
+
+    if (userinput >= 8 && userinput <= 128) {
+      return userinput;
+    }
+    else {
+      window.alert('Invalid input try again')
+    }
+  }
+
+}
+
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
