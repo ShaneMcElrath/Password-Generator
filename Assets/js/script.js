@@ -16,6 +16,48 @@ function writePassword() {
   passwordText.value = password;
 }
 
+//Generates password
+var generatePassword = function() {
+
+  var password = '';
+
+  passLength = passCriteriaPromt(passLength, "Num", "nothing");
+  choiceLowerCase = passCriteriaPromt(choiceLowerCase, "YN", "lower case letters");
+  choiceUpperCase = passCriteriaPromt(choiceUpperCase, "YN", "upper case letters");
+  choiceNum = passCriteriaPromt(choiceNum, "YN", "numbers");
+  choiceSpecial = passCriteriaPromt(choiceSpecial, "YN", "special characters");
+
+  while(passLength > 0) {
+    intRandom = randomNumberRange(0, 3);
+    if (intRandom === 0){
+      if (choiceLowerCase === "y"){
+        password += lowerCaseRandom();
+        passLength--;
+      }
+    }
+    else if(intRandom === 1) {
+      if (choiceUpperCase === "y") {
+        password += upperCaseRandom();
+        passLength--;
+      }
+    }
+    else if (intRandom === 2) {
+      if (choiceNum === "y") {
+        password += numberRandom();
+        passLength--;
+      }
+    }
+    else {
+      if (choiceSpecial === "y") {
+        password += specialCharacterRandom();
+        passLength--;
+      }
+    }
+  }
+
+  return password;
+
+}
 
 // creates a random number with in a specified range.
 var randomNumberRange = function(min, max) {
