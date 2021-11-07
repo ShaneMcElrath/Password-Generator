@@ -22,10 +22,19 @@ var generatePassword = function() {
   var password = '';
 
   passLength = passCriteriaPromt(passLength, "Num", "nothing");
-  choiceLowerCase = passCriteriaPromt(choiceLowerCase, "YN", "lower case letters");
-  choiceUpperCase = passCriteriaPromt(choiceUpperCase, "YN", "upper case letters");
-  choiceNum = passCriteriaPromt(choiceNum, "YN", "numbers");
-  choiceSpecial = passCriteriaPromt(choiceSpecial, "YN", "special characters");
+
+  while(true) {
+    choiceLowerCase = passCriteriaPromt(choiceLowerCase, "YN", "lower case letters");
+    choiceUpperCase = passCriteriaPromt(choiceUpperCase, "YN", "upper case letters");
+    choiceNum = passCriteriaPromt(choiceNum, "YN", "numbers");
+    choiceSpecial = passCriteriaPromt(choiceSpecial, "YN", "special characters");
+    if (choiceLowerCase === "n" && choiceUpperCase === "n" && choiceNum === "n" && choiceSpecial === "n") {
+      window.alert('You need at least one character type. Try again.')
+    }
+    else {
+      break;
+    }
+  }
 
   while(passLength > 0) {
     intRandom = randomNumberRange(0, 3);
