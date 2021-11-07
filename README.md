@@ -4,7 +4,7 @@
 A website that generates a password based on criteria that the user has entered.
 
 ## Screen Shot
-![ScreenShot](./Assets/images/screenshot.png?raw=true "main")
+![ScreenShot](./Assets/Images/Screenshot.png?raw=true "main")
 
 ## Built With 
  * HTML
